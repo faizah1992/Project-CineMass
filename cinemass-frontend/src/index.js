@@ -17,3 +17,20 @@ fetch('http://localhost:3000/movies')
     })
 
 })
+
+
+fetch(`http://localhost:3000/movies/${movie.id}`)
+    .then(function(r){
+        return r.json()
+    })
+    .then(function(movie){
+     let commentsUl= document.createElement('ul')
+     commentsUl.innerText=''
+     image.comments.forEach(function(comments){
+        console.log(comments)
+        let commentsLi= document.createElement('li')
+        commentsLi.innerText= movie.comments
+        commentsUl.append(commentsLi)
+       
+    })
+    })
