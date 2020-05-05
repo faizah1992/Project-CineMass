@@ -22,6 +22,11 @@ fetch('http://localhost:3000/movies')
         movieDiv.removeChild(movieDiv.lastChild)
     }
       let divTag = document.createElement('div')
+      divTag.setAttribute('id', 'show-panel')
+      document.body.append(divTag)
+      let addCommentBtn= document.createElement('button')
+      addCommentBtn.innerText= "Add Comment"
+    //   addCommentBtn.addEventListener('click', addComment(movie))
       let imgTag = document.createElement('img')
       let pTag = document.createElement('p')
       let rating = document.createElement('p')
@@ -59,6 +64,14 @@ fetch('http://localhost:3000/movies')
           divTag.append(newlike)
           
 
+    })
+
+    divTag.append(backBtn)
+    })
+
+ 
+
+    
       
       })
     
@@ -69,14 +82,35 @@ fetch('http://localhost:3000/movies')
 
     
     
-})
-
-      
-})
-
-} 
+}
+ 
 navList[1].addEventListener('click', function(){
     listMovies()
 })
 
 
+
+
+
+// let addComment= function(movie){
+//     fetch(`http://localhost:3000/comments`)
+//     .then(function(r){
+//         return r.json()
+//     })
+// }
+
+// fetch(`http://localhost:3000/movies`)
+//     .then(function(r){
+//         return r.json()
+//     })
+//     .then(function(movie){
+//      let commentsUl= document.createElement('ul')
+//      commentsUl.innerText=''
+//      movie.comments.forEach(function(comments){
+//         console.log(comments)
+//         let commentsLi= document.createElement('li')
+//         commentsLi.innerText= movie.comments
+//         commentsUl.append(commentsLi)
+       
+//     })
+//     })
