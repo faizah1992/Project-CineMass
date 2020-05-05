@@ -18,7 +18,7 @@ api_key = '639d285cc886f1f74c1c75f0e2d18bc0'
   begin
     response = RestClient.get(url)
     movie = JSON.parse(response)
-    new_movie = Movie.create({title: movie['title'], rating: movie['vote_average'], details: movie['overview'], runtime: movie['runtime'], released_date: movie['release_date'], likes: movie['vote_count']})
+    new_movie = Movie.create({title: movie['title'], rating: movie['vote_average'], details: movie['overview'], runtime: movie['runtime'], released_date: movie['release_date'], likes: movie['vote_count'], image: movie['poster_path']})
 
 
     movie['genres'].each do |genre|
