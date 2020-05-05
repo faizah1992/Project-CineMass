@@ -17,3 +17,23 @@ fetch('http://localhost:3000/movies')
     })
 
 })
+
+let likeBtn = document.querySelector('.like-button')
+likeBtn.addEventListener('click',function(){
+    fetch('http://localhost:3000/movies/${movie.id}',{
+        method: "PATCH",
+        headers: 
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            likes : i.likes +=1
+        })
+    })
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(l){
+            likes.innerText = `${l.likes}`
+        })
+})
