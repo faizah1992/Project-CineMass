@@ -37,11 +37,7 @@ fetch('http://localhost:3000/movies')
 
       imgTag.src = `http://image.tmdb.org/t/p/w185/${movie.image}`
       pTag.innerText = movie.details
-<<<<<<< HEAD:cinemass-frontend/src/index.js
-  
-=======
       divTag.append(pTag)
->>>>>>> 101e67456cffac20c947fab0215ae540133cbdef:cinemass-frontend/src/movies.js
 
       rating.innerText = `Rating: ${movie.rating}`
       runtime.innerText = `Runtime: ${movie.runtime} mins`
@@ -49,16 +45,12 @@ fetch('http://localhost:3000/movies')
       like.innerText = `likes: ${movie.likes}`
       backBtn.innerText = '<-- Back to All Movies'
       document.body.append(divTag)
-<<<<<<< HEAD:cinemass-frontend/src/index.js
-      divTag.append(imgTag, pTag, rating, runtime, release_date,addCommentBtn)
-=======
       divTag.append(imgTag, pTag, rating, runtime, release_date,like)
     
       backBtn.addEventListener('click', function(){
         divTag.remove()
         listMovies()
 
->>>>>>> 101e67456cffac20c947fab0215ae540133cbdef:cinemass-frontend/src/movies.js
 
       })
       let likeBtn = document.createElement('button')
@@ -72,7 +64,6 @@ fetch('http://localhost:3000/movies')
           divTag.append(newlike)
           
 
-<<<<<<< HEAD:cinemass-frontend/src/index.js
     })
 
     divTag.append(backBtn)
@@ -81,17 +72,24 @@ fetch('http://localhost:3000/movies')
  
 
     
-=======
       
       })
     
       divTag.append(likeBtn,backBtn)
       
 
->>>>>>> 101e67456cffac20c947fab0215ae540133cbdef:cinemass-frontend/src/movies.js
     })
 
-<<<<<<< HEAD:cinemass-frontend/src/index.js
+    
+    
+}
+ 
+navList[1].addEventListener('click', function(){
+    listMovies()
+})
+
+
+
 
 
 // let addComment= function(movie){
@@ -116,18 +114,3 @@ fetch('http://localhost:3000/movies')
        
 //     })
 //     })
-=======
-    
-    
-})
-
-      
-})
-
-} 
-navList[1].addEventListener('click', function(){
-    listMovies()
-})
-
->>>>>>> 101e67456cffac20c947fab0215ae540133cbdef:cinemass-frontend/src/movies.js
-
