@@ -1,0 +1,2 @@
+class MovieProductionCompaniesController < ApplicationController
+end
