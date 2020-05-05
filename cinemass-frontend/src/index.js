@@ -4,6 +4,7 @@ let movieUl = document.createElement('ul')
 movieDiv.append(movieUl)
 
 
+
 fetch('http://localhost:3000/movies')
 .then(function(response){
     return response.json()
