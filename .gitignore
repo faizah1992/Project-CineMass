@@ -1,0 +1,4 @@
+
+/cinemass-backend/tmp/*
+/cinemass-backend/db/development.sqlite3
+/cinemass-backend/log/*

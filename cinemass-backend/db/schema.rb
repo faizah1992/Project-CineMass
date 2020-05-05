@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_170117) do
+ActiveRecord::Schema.define(version: 2020_05_04_222638) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "movie_id"
@@ -21,15 +21,39 @@ ActiveRecord::Schema.define(version: 2020_05_04_170117) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "movie_genres", force: :cascade do |t|
+    t.integer "genre_id"
+    t.integer "movie_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "movie_production_companies", force: :cascade do |t|
+    t.integer "movie_id"
+    t.integer "production_company_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.integer "rating"
-    t.string "genre"
     t.text "details"
     t.integer "runtime"
     t.integer "released_date"
-    t.text "production_company"
     t.integer "likes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "production_companies", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

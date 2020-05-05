@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :movie_genres
+  resources :movie_production_companies
+  resources :genres
+  resources :production_companies
   resources :comments
   resources :users
   resources :movies
