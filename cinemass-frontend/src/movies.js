@@ -2,6 +2,7 @@ let movieDiv = document.createElement('div')
 document.body.append(movieDiv)
 let movieUl = document.createElement('ul')
 movieDiv.append(movieUl)
+let navList = document.querySelectorAll("li")
 
 let listMovies = function(){
 fetch('http://localhost:3000/movies')
@@ -16,7 +17,10 @@ fetch('http://localhost:3000/movies')
 
 
     movieLi.addEventListener('click', function(){
-      movieDiv.remove()
+    //   movieDiv.remove()
+    while(movieDiv.firstChild){
+        movieDiv.removeChild(movieDiv.lastChild)
+    }
       let divTag = document.createElement('div')
       let imgTag = document.createElement('img')
       let pTag = document.createElement('p')
@@ -71,5 +75,8 @@ fetch('http://localhost:3000/movies')
 })
 
 } 
-listMovies()
+navList[1].addEventListener('click', function(){
+    listMovies()
+})
+
 
