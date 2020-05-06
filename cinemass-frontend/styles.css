@@ -12,6 +12,7 @@ header{
     float: right;
     list-style: none;
     margin-top: 30px;
+    colot: white
 }
 .nav-item li{
     display: inline-block;
@@ -48,3 +49,28 @@ body{
     margin-right: 200px;
    
 } 
+#collection {
+    margin: 2rem;
+  }
+
+.movieimage{
+    justify-self: center;
+    width: auto;
+  }
+  
+.card{
+    text-align: center;
+    border: grey solid 1px;
+    padding: 1rem;
+    width: 15rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+
+}
+h5{
+    font-family: 'Caveat', cursive;
+}
+#show-panel{
+    text-align: center;
+}
+  

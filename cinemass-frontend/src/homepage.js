@@ -8,7 +8,7 @@ let homepage = function(){
         heroDiv.setAttribute('class','hero')
         let h2 = document.createElement('h2')
         h2.innerText="Welcome to Cinemass"
-        h2.setAttribute("style", "font-family: fantasy;")
+        h2.setAttribute("style", "font-family: fantasy")
         h2.setAttribute("style", "color: white;")
         heroDiv.append(h2)   
     }
