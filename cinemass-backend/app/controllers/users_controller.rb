@@ -9,7 +9,7 @@ class UsersController < ApplicationController
             username: params[:username],
             bio: params[:bio],
             location: params[:location],
-            password: params[:password]
+            password_digest: params[:password]
         })
         render :json => @user
     end

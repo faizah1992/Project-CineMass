@@ -7,6 +7,7 @@ let loginForm = document.createElement('form')
 
 // add event listener to login in navbar to create modal when clicked
 navList[7].addEventListener('click', ()=>{
+  
   let modalDiv = document.createElement('div')
   modalDiv.setAttribute('id', 'myModal')
   modalDiv.setAttribute('class', 'modal fade in')
