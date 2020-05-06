@@ -1,5 +1,3 @@
-
-
 let listMovies = function(){
   let movieDiv = document.createElement('div')
   rootDiv.append(movieDiv)
@@ -26,7 +24,6 @@ fetch('http://localhost:3000/movies')
       rootDiv.append(divTag)
       let addCommentBtn= document.createElement('button')
       addCommentBtn.innerText= "Add Comment"
-    //   addCommentBtn.addEventListener('click', addComment(movie))
       let imgTag = document.createElement('img')
       let pTag = document.createElement('p')
       let rating = document.createElement('p')
@@ -34,6 +31,7 @@ fetch('http://localhost:3000/movies')
       let release_date = document.createElement('p')
       let backBtn = document.createElement('button')
         let like = document.createElement('p')
+        let unlike = document.createElement('p')
 
       imgTag.src = `http://image.tmdb.org/t/p/w185/${movie.image}`
       pTag.innerText = movie.details
@@ -52,6 +50,7 @@ fetch('http://localhost:3000/movies')
         listMovies()
       })
 
+      //like
       let likeBtn = document.createElement('button')
       likeBtn.innerText = "Like"
       likeBtn.addEventListener('click',function(){
@@ -60,7 +59,19 @@ fetch('http://localhost:3000/movies')
           like.innerText = `likes: ${movie.likes}`
       })
 
-      divTag.append(likeBtn,backBtn)
+      //unlike
+      let unlikeBtn = document.createElement('button')
+      unlikeBtn.innerText = "Unlike"
+      unlikeBtn.addEventListener('click',function(){
+          movie.likes -= 1
+          console.log(movie.likes)
+          like.innerText = `likes: ${movie.likes}`
+      })
+
+      // let addWatchlist = document.createElement('button')
+      // addWatchlist.innerText = "Add to Watchlist"
+
+      divTag.append(likeBtn,unlikeBtn,backBtn)
 
 
     })
