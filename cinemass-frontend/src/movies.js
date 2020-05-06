@@ -1,7 +1,10 @@
-let movieDiv = document.createElement('div')
+let movieDiv = document.createElement('.div')
 document.body.append(movieDiv)
+
 let movieUl = document.createElement('ul')
 movieDiv.append(movieUl)
+
+let movieLi = document.createElement('li')
 let navList = document.querySelectorAll("li")
 
 let listMovies = function(){
@@ -17,7 +20,6 @@ fetch('http://localhost:3000/movies')
 
 
     movieLi.addEventListener('click', function(){
-    //   movieDiv.remove()
     while(movieDiv.firstChild){
         movieDiv.removeChild(movieDiv.lastChild)
     }
