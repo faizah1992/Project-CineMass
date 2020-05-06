@@ -1,18 +1,9 @@
 
-    let divTag = document.createElement('div')
-    document.body.append(divTag)
-    let userForm = document.createElement('form')
-    divTag.append(userForm)
-
-    
-    navList[6].addEventListener('click', function(){
-        while(movieDiv.firstChild){
-            movieDiv.removeChild(movieDiv.lastChild)
-        }
-        while(userForm.firstChild){
-            userForm.removeChild(userForm.lastChild)
-        }
-        
+    let signUp = function(){
+        let divTag = document.createElement('div')
+        rootDiv.append(divTag)
+        let userForm = document.createElement('form')
+        divTag.append(userForm)
     //labels:
         let nameLabel = document.createElement('label')
         nameLabel.innerText = "Enter your Name:"
@@ -55,10 +46,10 @@
                 }
             })
         })
-        
+    }
         
 
-    })
+    
 
 
    
