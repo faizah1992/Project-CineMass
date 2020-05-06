@@ -1,13 +1,11 @@
-let movieDiv = document.createElement('.div')
-document.body.append(movieDiv)
 
-let movieUl = document.createElement('ul')
-movieDiv.append(movieUl)
-
-let movieLi = document.createElement('li')
-let navList = document.querySelectorAll("li")
 
 let listMovies = function(){
+  let movieDiv = document.createElement('div')
+  rootDiv.append(movieDiv)
+  
+  let movieUl = document.createElement('ul')
+  movieDiv.append(movieUl)
 fetch('http://localhost:3000/movies')
 .then(function(response){
     return response.json()
@@ -25,7 +23,7 @@ fetch('http://localhost:3000/movies')
     }
       let divTag = document.createElement('div')
       divTag.setAttribute('id', 'show-panel')
-      document.body.append(divTag)
+      rootDiv.append(divTag)
       let addCommentBtn= document.createElement('button')
       addCommentBtn.innerText= "Add Comment"
     //   addCommentBtn.addEventListener('click', addComment(movie))
@@ -48,47 +46,36 @@ fetch('http://localhost:3000/movies')
       backBtn.innerText = '<-- Back to All Movies'
       document.body.append(divTag)
       divTag.append(imgTag, pTag, rating, runtime, release_date,like)
-    
+
       backBtn.addEventListener('click', function(){
         divTag.remove()
         listMovies()
-
-
       })
+
       let likeBtn = document.createElement('button')
       likeBtn.innerText = "Like"
-      likeBtn.addEventListener('click',function(){ 
+      likeBtn.addEventListener('click',function(){
           movie.likes += 1
           console.log(movie.likes)
-          like.remove()
-          let newlike = document.createElement('p')
-          newlike.innerText = `likes: ${movie.likes}`
-          divTag.append(newlike)
-          
-
-    })
-
-    divTag.append(backBtn)
-    })
-
- 
-
-    
-      
+          like.innerText = `likes: ${movie.likes}`
       })
-    
+
       divTag.append(likeBtn,backBtn)
-      
+
 
     })
 
-    
-    
+
+
+})
+
+
+})
+  
 }
  
-navList[1].addEventListener('click', function(){
-    listMovies()
-})
+
+
 
 
 

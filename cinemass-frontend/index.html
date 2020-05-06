@@ -5,26 +5,37 @@
     <link rel="stylesheet" href="styles.css">
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
   </head>
   <body>
     <header>
+     <!-- <div class='title'>Welcome to cinemass</div> -->
       <ul class="nav">
-        <li class="nav-item">
+        <li class="nav-item showMenu">
           <a class="nav-link active" href="#">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item showMenu">
           <a class="nav-link active" href="#">Movies</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item hideMenu">
           <a class="nav-link active" href="#">Profile</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item hideMenu">
           <a class="nav-link" href="#">Watchlist</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="#">Search</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown hideMenu">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sort-By</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">Genre</a>
@@ -34,40 +45,28 @@
             <a class="dropdown-item" href="#">Genre</a>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item hideLogin">
           <a class="nav-link active" href="#">Sign-Up</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item hideLogin">
           <a class="nav-link active" href="#">Login</a>
         </li>
-        
       </ul>
-      <!-- <ul class="main-nav">
-        <li id="homebtn">HOME</li>
-        <li id="moviebtn">MOVIES</li>
-        <li>ABOUT</li>
-        <li>SIGN-UP</li>
-        <li>LOG-IN</li>
-      </ul> -->
-      
+    
     </header>
-    <div class="hero">
-      <h2>Welcome to CineMass</h2>
-      
-    </div>
-    <div class="movie hide">
-     
-    </div>
-  
-    
-    
-    <!-- <script type="text/javascript" src="src/index.js"></script>
-    <script type="text/javascript" src="src/index1.js"></script> -->
-    <script type="text/javascript" src="src/movies.js"></script>
-    <script type="text/javascript" src="src/user.js"></script>
+   <div id="root">
+
+   </div>
+   <script type="text/javascript" src="src/navigation.js"></script>
     <script type="text/javascript" src="src/homepage.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="src/movies.js"></script>
+    <script type="text/javascript" src="src/login_modal.js"></script>
+    <script type="text/javascript" src="src/login.js"></script>
+    <script type="text/javascript" src="src/sign-up.js"></script>
+
+    
   </body>
 </html>
+
+
+
