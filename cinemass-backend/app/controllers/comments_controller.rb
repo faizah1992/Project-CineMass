@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    def index 
+    def index
         comments = Comment.all
         render :json => comments, include: [:movie, :user]
     end
@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 
         })
         render(json:comment)
-      
+
     end
 
     def destroy
@@ -22,7 +22,3 @@ class CommentsController < ApplicationController
         render(json:comment)
      end
 end
-
-    
-
-
