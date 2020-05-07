@@ -1,5 +1,5 @@
 let picDiv = document.querySelector("#collection")
-
+let movieDiv = document.createElement('div')
 
 // add comments to a movie
 let addComment = function(div, film){
@@ -15,7 +15,7 @@ let addComment = function(div, film){
 
   addCommentBtn.addEventListener('click', function(){
     let commentForm= document.createElement('form')
-    document.body.append(commentForm)
+    rootDiv.append(commentForm)
     let inputLabel= document.createElement('label')
     inputLabel.innerText= 'Write your comment here!'
     let commentInput = document.createElement('input')
@@ -50,9 +50,45 @@ let addComment = function(div, film){
   })   
 }
 
+//searchBar
+let search = function(){
+  
+  let searchDiv = document.createElement('div')
+  searchDiv.setAttribute('class','search')
+  movieDiv.append(searchDiv)
+     
+  let searchLabel= document.createElement('label')
+  searchLabel.innerText= 'Search for movies:'
+  let searchInput = document.createElement('input')
+  searchInput.innerText = "search movies"
 
+  searchDiv.append(searchLabel,searchInput)
+  searchInput.addEventListener('keyup',function(e){
+    
+    let searchString = e.target.value.toLowerCase()
+    fetch('http://localhost:3000/movies')
+      .then(function(response){
+    return response.json()
+    })
+    .then(function(mov){ 
+     let filteredMovies = mov.filter((obj) => {
+      return(obj.title.toLowerCase().includes(searchString))
+
+      })
+      picDiv.innerText = ""
+      console.log(filteredMovies)
+      movieArr(filteredMovies)
+    })
+    
+  })
+  
+}
+
+search()
+
+//List of movies
 let listMovies = function(){
-  let movieDiv = document.createElement('div')
+ 
   rootDiv.append(movieDiv)
   rootDiv.append(picDiv)
 fetch('http://localhost:3000/movies')
@@ -60,8 +96,16 @@ fetch('http://localhost:3000/movies')
     return response.json()
 })
 .then(function(obj){
-  obj.forEach(movie =>{
-    console.log(movie)
+  console.log(obj)
+movieArr(obj)
+
+
+})
+  
+}
+
+let movieArr = function(movies){
+  movies.forEach(movie =>{
     let cardDiv = document.createElement('div')
     cardDiv.setAttribute('class','card col-sm-2');
     picDiv.setAttribute('class', 'row')
@@ -113,7 +157,7 @@ fetch('http://localhost:3000/movies')
 
       commentSection.innerText= "Comment Section"
 
-      document.body.append(divTag)
+      rootDiv.append(divTag)
       divTag.append(imgTag, pTag, rating, runtime, release_date,like, commentSection)
      
       // invoke addComment Functiono update comment section
@@ -160,9 +204,4 @@ fetch('http://localhost:3000/movies')
     })
 
 })
-
-
-})
-  
 }
- 

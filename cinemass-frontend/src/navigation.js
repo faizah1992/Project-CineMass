@@ -11,7 +11,8 @@ navList[0].addEventListener('click', function(){
    
 })
 
-navList[6].addEventListener('click', function(){
+navList[5].addEventListener('click', function(){
     rootDiv.innerText=""
     signUp()
 })
+
