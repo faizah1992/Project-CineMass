@@ -45,10 +45,10 @@ api_key = '639d285cc886f1f74c1c75f0e2d18bc0'
   end
 end
 
-
 (1..20).each do |num|
-  User.create({username: Faker::Name.name, location: Faker::Address.city, bio: Faker::Lorem.paragraph, movie_id: Movie.all.sample.id})
+  User.create({username: Faker::Name.name, location: Faker::Address.city, bio: Faker::Lorem.paragraph, movie_id: Movie.all.sample.id, image: Faker::Avatar.image, password: "testuser"})
 end
+
 
 (1..20).each do |num|
   Comment.create({comment: Faker::Lorem.sentence, likes: 0, user_id: User.all.sample.id, movie_id: Movie.all.sample.id})
