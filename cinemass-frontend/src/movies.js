@@ -53,11 +53,11 @@ let addComment = function(div, film){
 
 //searchBar
 let search = function(){
-  
+
   let searchDiv = document.createElement('div')
   searchDiv.setAttribute('class','search')
   movieDiv.append(searchDiv)
-     
+
   let searchLabel= document.createElement('label')
   searchLabel.innerText= 'Search for movies:'
   let searchInput = document.createElement('input')
@@ -65,13 +65,13 @@ let search = function(){
 
   searchDiv.append(searchLabel,searchInput)
   searchInput.addEventListener('keyup',function(e){
-    
+
     let searchString = e.target.value.toLowerCase()
     fetch('http://localhost:3000/movies')
       .then(function(response){
     return response.json()
     })
-    .then(function(mov){ 
+    .then(function(mov){
      let filteredMovies = mov.filter((obj) => {
       return(obj.title.toLowerCase().includes(searchString))
 
@@ -80,30 +80,25 @@ let search = function(){
       console.log(filteredMovies)
       movieArr(filteredMovies)
     })
-    
+
   })
-  
+
 }
 
 search()
 
 //List of movies
 let listMovies = function(){
- 
+
   rootDiv.append(movieDiv)
   rootDiv.append(picDiv)
-fetch('http://localhost:3000/movies')
-.then(function(response){
-    return response.json()
-})
-.then(function(obj){
-  obj.forEach(movie =>{
-
-movieArr(obj)
-
-
-})
-  
+  fetch('http://localhost:3000/movies')
+  .then(function(response){
+      return response.json()
+  })
+  .then(function(obj){
+      movieArr(obj)
+    })
 }
 
 let movieArr = function(movies){
