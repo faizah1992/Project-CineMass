@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # create login route for fetching and authenticating user login details
+  post('/users/login', { to: 'users#handle_login'})
+
   resources :movie_genres
   resources :movie_production_companies
   resources :genres
@@ -6,5 +9,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :users
   resources :movies
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
