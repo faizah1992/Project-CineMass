@@ -1,12 +1,12 @@
 // set modal attributes on Login to display modal
-navList[7].setAttribute('data-toggle', 'modal')
-navList[7].setAttribute('data-target', '#myModal')
+navList[6].setAttribute('data-toggle', 'modal')
+navList[6].setAttribute('data-target', '#myModal')
 
 // create form element for user login details
 let loginForm = document.createElement('form')
 
 // add event listener to login in navbar to create modal when clicked
-navList[7].addEventListener('click', ()=>{
+navList[6].addEventListener('click', ()=>{
   
   let modalDiv = document.createElement('div')
   modalDiv.setAttribute('id', 'myModal')
