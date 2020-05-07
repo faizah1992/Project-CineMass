@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  skip_before_action(:check_login, only: [:handle_login])
-
   # check user login details and render back user info if login passes
   def handle_login
     user = User.find_by(username: params[:username])

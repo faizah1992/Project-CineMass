@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # create login route for fetching and authenticating user login details
   post('/users/login', { to: 'users#handle_login'})
+  get('/', {to: 'application#homepage'})
 
   resources :movie_genres
   resources :movie_production_companies
