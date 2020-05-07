@@ -1,6 +1,5 @@
 let picDiv = document.querySelector("#collection")
 
-
 // add comments to a movie
 let addComment = function(div, film){
   let addCommentBtn = document.createElement('button')
@@ -9,7 +8,7 @@ let addComment = function(div, film){
   let deleteCommentBtn= document.createElement('button')
   deleteCommentBtn.innerHTML="Delete Comment"
   let commentDiv = document.querySelector('#comment-section')
- 
+
   div.append(addCommentBtn, deleteCommentBtn)
 
 
@@ -24,8 +23,8 @@ let addComment = function(div, film){
     commentForm.append(inputLabel, commentInput, submitCommentBtn)
 
 
-    commentForm.addEventListener('submit', function(e){ 
-     
+    commentForm.addEventListener('submit', function(e){
+
       e.preventDefault()
       let newCommentTag = document.createElement('p')
       newCommentTag.innerText = commentForm[0].value
@@ -43,11 +42,11 @@ let addComment = function(div, film){
           likes: 0,
           comment: commentForm[0].value,
           user_id: 20
-          
+
         })
       })
     })
-  })   
+  })
 }
 
 
@@ -61,7 +60,6 @@ fetch('http://localhost:3000/movies')
 })
 .then(function(obj){
   obj.forEach(movie =>{
-    console.log(movie)
     let cardDiv = document.createElement('div')
     cardDiv.setAttribute('class','card col-sm-2');
     picDiv.setAttribute('class', 'row')
@@ -76,13 +74,13 @@ fetch('http://localhost:3000/movies')
       cardDiv.append(movName,movImg)
       picDiv.append(cardDiv)
 
-    //click on the card to go to showpage 
+    //click on the card to go to showpage
     cardDiv.addEventListener('click', function(){
       rootDiv.innerText=""
       let divTag = document.createElement('div')
       divTag.setAttribute('id', 'show-panel')
 
-     
+
       let imgTag = document.createElement('img')
       imgTag.style.marginLeft='50%'
       imgTag.style.transform='translateX(-50%)'
@@ -95,7 +93,7 @@ fetch('http://localhost:3000/movies')
       let like = document.createElement('p')
       let commentSection= document.createElement('div')
       commentSection.setAttribute("id","comment-section")
-       
+
 
         let unlike = document.createElement('p')
 
@@ -115,7 +113,7 @@ fetch('http://localhost:3000/movies')
 
       rootDiv.append(divTag)
       divTag.append(imgTag, pTag, rating, runtime, release_date,like, commentSection)
-     
+
       // invoke addComment Functiono update comment section
       addComment(divTag, movie)
 
@@ -132,9 +130,9 @@ fetch('http://localhost:3000/movies')
         commentSection.append(commentP)
        })
 
-      
+
       divTag.append(pTag, rating, runtime, release_date,like)
-      
+
       backBtn.addEventListener('click', function(){
         rootDiv.innerText=''
         listMovies()
@@ -163,6 +161,5 @@ fetch('http://localhost:3000/movies')
 
 
 })
-  
+
 }
- 
