@@ -113,7 +113,7 @@ fetch('http://localhost:3000/movies')
 
       commentSection.innerText= "Comment Section"
 
-      document.body.append(divTag)
+      rootDiv.append(divTag)
       divTag.append(imgTag, pTag, rating, runtime, release_date,like, commentSection)
      
       // invoke addComment Functiono update comment section
@@ -164,9 +164,5 @@ fetch('http://localhost:3000/movies')
 
 })
   
-<<<<<<< HEAD
-}
-=======
 }
  
->>>>>>> 813e5bdea2c4dfa5616aa5317f2e292bd947d05b
