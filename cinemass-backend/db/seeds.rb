@@ -49,7 +49,7 @@ end
   User.create({username: Faker::Name.name, location: Faker::Address.city, bio: Faker::Lorem.paragraph, movie_id: Movie.all.sample.id, image: Faker::Avatar.image, password: "testuser"})
 end
 
-begin
+
 (1..20).each do |num|
   Comment.create({comment: Faker::Lorem.sentence, likes: 0, user_id: User.all.sample.id, movie_id: Movie.all.sample.id})
 end
