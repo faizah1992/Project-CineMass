@@ -2,6 +2,8 @@ let picDiv = document.querySelector("#collection")
 
 let movieDiv = document.createElement('div')
 
+
+
 // add comments to a movie
 let addComment = function(div, film){
   let addCommentBtn = document.createElement('button')
@@ -104,6 +106,7 @@ let listMovies = function(){
 
 let movieArr = function(movies){
   movies.forEach(movie =>{
+
     let cardDiv = document.createElement('div')
     cardDiv.setAttribute('class','card col-sm-2');
     picDiv.setAttribute('class', 'row')
@@ -123,7 +126,12 @@ let movieArr = function(movies){
       rootDiv.innerText=""
       let divTag = document.createElement('div')
       divTag.setAttribute('id', 'show-panel')
-
+      
+//creates the wathclist button and hides it unless the user is logged in 
+      let watchListBtn= document.createElement('button')
+      watchListBtn.setAttribute("id","watch-list")
+      watchListBtn.innerText= "Add To Watchlist"
+      // $(watchListBtn).hide()
 
       let imgTag = document.createElement('img')
       imgTag.style.marginLeft='50%'
@@ -133,14 +141,14 @@ let movieArr = function(movies){
       let runtime = document.createElement('p')
       let release_date = document.createElement('p')
       let backBtn = document.createElement('button')
-
+    
+  
       let like = document.createElement('p')
       let commentSection= document.createElement('div')
       commentSection.setAttribute("id","comment-section")
 
 
         let unlike = document.createElement('p')
-
       imgTag.src = `http://image.tmdb.org/t/p/w185/${movie.image}`
       pTag.innerText = movie.details
       rootDiv.append(imgTag)
@@ -157,7 +165,49 @@ let movieArr = function(movies){
 
       rootDiv.append(divTag)
       divTag.append(imgTag, pTag, rating, runtime, release_date,like, commentSection)
+      if(user!= null){
+        divTag.append(watchListBtn)
+      }
+      
+  
+      watchListBtn.addEventListener('click', function(){
+        rootDiv.innerText=""
 
+        fetch("http://localhost:3000/watchlists", {
+          method:"POST",
+          headers:{
+            'Content-Type' : 'application/json'
+          },
+          body: JSON.stringify({
+            movie_id : movie.id,
+            user_id: user.id
+          })
+        })
+        .then(()=>{
+        //     // watchList();
+        //     rootDiv.innerText="" ;
+          
+
+
+      fetch("http://localhost:3000/watchlists")
+      .then(function(r){
+        return r.json();
+      })
+      .then(function(watchlists){
+        // let newArr= []
+      
+        let findDiv= document.querySelector('#root')
+   
+        watchlists.forEach(watchlist=> singleMovie(watchlist))
+        
+  })
+      
+          })
+
+      
+         
+        })
+    
       // invoke addComment Functiono update comment section
       addComment(divTag, movie)
 
@@ -197,4 +247,18 @@ let movieArr = function(movies){
     })
 
 })
+}
+
+
+let singleMovie= function(watchlist){
+  console.log(watchlist)
+ 
+  let findDiv= document.querySelector('#root')
+  
+
+             if(watchlist.user_id== user.id){
+              let li= document.createElement('li')
+              li.innerText= watchlist.movie.title
+               findDiv.append(li)
+             }
 }

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:username])
     if (user != nil && user.authenticate(params[:password]))
       session[:user_id] = user.id
-      newUserHash = {username: user[:username], location: user[:location], bio: user[:bio], movie_id: user[:movie_id], image: user[:image]}
+      newUserHash = {id:user[:id], username: user[:username], location: user[:location], bio: user[:bio], movie_id: user[:movie_id], image: user[:image]}
       render :json => newUserHash
     else
       render :json => {error: true, message: 'Invalid Login'}
@@ -14,7 +14,13 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
-        render :json => @users, include: :movies
+        render :json => @users, include: [:movies, :watchlists]
+    end
+
+    def show
+      user = User.find_by(id:params[:id])
+
+      render :json => user, include: :watchlists
     end
 
     def create

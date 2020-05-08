@@ -1,3 +1,4 @@
+let user= null
 // function to grab user object after login
 let userDetails = function(object){
   let userObj = {}
@@ -52,10 +53,15 @@ loginForm.addEventListener('submit', (e)=>{
     if (obj.error){
       loginForm.append(obj.message)
     }else {
+      //show the watchlist when the user is logged in
+      let watchList=document.querySelector('#watch-list')
+      $(watchList).show()
+      // console.log(watchList)
       // invoke userDetails() and userProfile
-      let user = userDetails(obj)
+      user = obj
       userProfile(user)
-
+      console.log(userDetails(obj))
+    
       // show hidden nav items after user logs in
       $(".hideMenu").show();
 
@@ -64,6 +70,8 @@ loginForm.addEventListener('submit', (e)=>{
 
       // hide modal after user is logged in
       // $('#myModal').modal('hide')
+    
     }
+
   })
 })

@@ -2,7 +2,6 @@ let navList = document.querySelectorAll("li")
 
 navList[1].addEventListener('click', function(){
     rootDiv.innerText = ""
-    console.log('Clicked')
       listMovies()
            
   })
