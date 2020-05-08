@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :watchlists
   # create login route for fetching and authenticating user login details
   post('/users/login', { to: 'users#handle_login'})
   get('/', {to: 'application#homepage'})
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :users
   resources :movies
+  resources :watchlists
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

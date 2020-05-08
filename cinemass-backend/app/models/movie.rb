@@ -5,4 +5,6 @@ class Movie < ApplicationRecord
     has_many :production_companies, through: :movie_production_companies
     has_many :movie_genres
     has_many :genres, through: :movie_genres
+    has_many :watchlists
+    has_many :users, through: :watchlists
 end
