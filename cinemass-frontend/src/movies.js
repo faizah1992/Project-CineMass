@@ -43,7 +43,7 @@ let addComment = function(div, film){
           movie_id: film.id,
           likes: 0,
           comment: commentForm[0].value,
-          user_id: 20
+          user_id: user.user_id
 
         })
       })
@@ -89,7 +89,7 @@ search()
 
 //List of movies
 let listMovies = function(){
-  
+
   rootDiv.append(movieDiv)
   rootDiv.append(picDiv)
   fetch('http://localhost:3000/movies')
