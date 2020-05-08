@@ -1,3 +1,4 @@
+let user = ''
 // function to grab user object after login
 let userDetails = function(object){
   let userObj = {}
@@ -33,7 +34,7 @@ loginForm.addEventListener('submit', (e)=>{
       loginForm.append(obj.message)
     }else {
       // invoke userDetails() and userProfile
-      let user = userDetails(obj)
+      user = userDetails(obj)
       createUserProfile(user)
 
 
