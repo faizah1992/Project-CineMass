@@ -25,6 +25,7 @@ class UsersController < ApplicationController
             password: params[:password],
             image: params[:image]
         })
+        
         render :json => @user
     end
 
