@@ -97,6 +97,7 @@ let listMovies = function(){
       return response.json()
   })
   .then(function(obj){
+      picDiv.innerText=""
       movieArr(obj)
     })
 }
@@ -155,7 +156,7 @@ let movieArr = function(movies){
       commentSection.innerText= "Comment Section"
 
       rootDiv.append(divTag)
-      divTag.append(imgTag, pTag, rating, runtime, release_date,like, commentSection)
+      divTag.append(pTag, rating, runtime, release_date,like, commentSection)
 
       // invoke addComment Functiono update comment section
       addComment(divTag, movie)

@@ -1,5 +1,5 @@
 
-navList[7].addEventListener('click', ()=>{
+navList[6].addEventListener('click', ()=>{
     $(".hideMenu").hide();
     $(".hideLogin").show();
 })
