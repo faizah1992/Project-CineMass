@@ -1,5 +1,6 @@
 
     let signUp = function(){
+
         let divTag = document.createElement('div')
         rootDiv.append(divTag)
         let userForm = document.createElement('form')

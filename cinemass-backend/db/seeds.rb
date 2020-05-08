@@ -14,8 +14,10 @@ MovieProductionCompany.destroy_all
 api_key = '639d285cc886f1f74c1c75f0e2d18bc0'
 
 (100..115).each do |num|
-  url = "http://api.themoviedb.org/3/movie/#{num}?api_key=#{api_key}&append_to_response=videos"
   begin
+  url = "http://api.themoviedb.org/3/movie/#{num}?api_key=#{api_key}&append_to_response=videos"
+ 
+
     response = RestClient.get(url)
     movie = JSON.parse(response)
     new_movie = Movie.create({title: movie['title'], rating: movie['vote_average'], details: movie['overview'], runtime: movie['runtime'], released_date: movie['release_date'], likes: movie['vote_count'], image: movie['poster_path']})
