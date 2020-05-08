@@ -38,12 +38,12 @@ loginForm.addEventListener('submit', (e)=>{
       $(watchList).show()
       // console.log(watchList)
       // invoke userDetails() and userProfile
-      user = obj
-      userProfile(user)
-      console.log(userDetails(obj))
+      // user = obj
+      // userProfile(user)
+      // console.log(userDetails(obj))
     
-      // user = userDetails(obj)
-      // createUserProfile(user)
+      user = userDetails(obj)
+      createUserProfile(user)
 
 
       // show hidden nav items after user logs in
