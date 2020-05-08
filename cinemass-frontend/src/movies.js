@@ -148,7 +148,7 @@ let movieArr = function(movies){
       commentSection.setAttribute("id","comment-section")
 
 
-        let unlike = document.createElement('p')
+      let unlike = document.createElement('p')
       imgTag.src = `http://image.tmdb.org/t/p/w185/${movie.image}`
       pTag.innerText = movie.details
       rootDiv.append(imgTag)
@@ -164,7 +164,7 @@ let movieArr = function(movies){
       commentSection.innerText= "Comment Section"
 
       rootDiv.append(divTag)
-      divTag.append(imgTag, pTag, rating, runtime, release_date,like, commentSection)
+      divTag.append(pTag, rating, runtime, release_date,like, commentSection)
       if(user!= null){
         divTag.append(watchListBtn)
       }
