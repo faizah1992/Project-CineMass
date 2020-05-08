@@ -6,5 +6,5 @@ class User < ApplicationRecord
     # change user password to digest and validate user login details
     has_secure_password()
     validates :username, presence: true, uniqueness: true
-    validates :password, presence: true
+    #validates :password, presence: true
 end

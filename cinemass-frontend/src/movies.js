@@ -45,7 +45,7 @@ let addComment = function(div, film){
           movie_id: film.id,
           likes: 0,
           comment: commentForm[0].value,
-          user_id: 20
+          user_id: user.user_id
 
         })
       })
@@ -79,7 +79,7 @@ let search = function(){
 
       })
       picDiv.innerText = ""
-      console.log('searchstring')
+      console.log(filteredMovies)
       movieArr(filteredMovies)
     })
 
@@ -91,17 +91,17 @@ search()
 
 //List of movies
 let listMovies = function(){
-  rootDiv.innerText=""
+
   rootDiv.append(movieDiv)
   rootDiv.append(picDiv)
   fetch('http://localhost:3000/movies')
   .then(function(response){
       return response.json()
   })
-  .then(function(obj){ 
-    picDiv.innerText=""
-    movieArr(obj)
-  })
+  .then(function(obj){
+      picDiv.innerText=""
+      movieArr(obj)
+    })
 }
 
 let movieArr = function(movies){
@@ -211,7 +211,12 @@ let movieArr = function(movies){
       // invoke addComment Functiono update comment section
       addComment(divTag, movie)
 
-   
+      backBtn.addEventListener('click', function(){
+        divTag.remove()
+
+        listMovies()
+      })
+
       // get all comments and create p tags to render
       movie.comments.forEach(function(comment){
         let commentP= document.createElement('p')
@@ -223,7 +228,7 @@ let movieArr = function(movies){
       divTag.append(pTag, rating, runtime, release_date,like)
 
       backBtn.addEventListener('click', function(){
-        rootDiv.innerText=""
+        rootDiv.innerText=''
         listMovies()
       })
 
