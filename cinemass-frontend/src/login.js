@@ -5,26 +5,6 @@ let userDetails = function(object){
   return userObj
 }
 
-// function to create html tags for user profile
-let userProfile = function(userObject){
-  navList[2].addEventListener('click', function(){
-    let profileDiv = document.createElement('div')
-    profileDiv.setAttribute('id', 'user_profile')
-    rootDiv.append(profileDiv)
-    rootDiv.innerText=""
-
-    let bio = document.createElement('p')
-    let location = document.createElement('p')
-    let name = document.createElement('p')
-    let userAvatar = document.createElement('img')
-    userAvatar.src = userObject.image
-    name.innerText = userObject.username
-    bio.innerText = userObject.bio
-    location.innerText = userObject.location
-    rootDiv.append(userAvatar, name, bio, location)
-
-  })
-}
 
 $(document).ready(function(){
   // hide some nav items before user logs in
@@ -54,7 +34,8 @@ loginForm.addEventListener('submit', (e)=>{
     }else {
       // invoke userDetails() and userProfile
       let user = userDetails(obj)
-      userProfile(user)
+      createUserProfile(user)
+
 
       // show hidden nav items after user logs in
       $(".hideMenu").show();
